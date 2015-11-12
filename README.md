@@ -1,2 +1,6 @@
 # chess
-gam
+This will be game of chess with AI. C++ OO programming
+
+
+
+
