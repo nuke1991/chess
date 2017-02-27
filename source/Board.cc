@@ -1,4 +1,8 @@
 #include "Board.h"
+#include "King.h"
+#include <iostream>
+
+using namespace std;
 
 Board::Board()
 :mailbox{
@@ -25,6 +29,7 @@ Board::Board()
     81, 82, 83, 84, 85, 86, 87, 88,
     91, 92, 93, 94, 95, 96, 97, 98
 }
+
 {
 }
 
@@ -32,5 +37,20 @@ Board::~Board()
 {
 }
 
+void Board::PlacePieceOnBoard(Square square, std::shared_ptr<Piece> piece)
+{
+   m_piecesOnBoard.insert(std::make_pair(square, piece));
+}
 
+shared_ptr<Piece> Board::GetPieceFromSquare(Square square)
+{
+   if(m_piecesOnBoard.find(square)!= m_piecesOnBoard.end())
+   {
+      return m_piecesOnBoard.find(square)->second;
+   }
+   else
+   {
+      return nullptr;
+   }
+}
 
